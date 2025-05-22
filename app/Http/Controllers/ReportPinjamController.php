@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TrsPinjam;
 use Illuminate\Http\Request;
 
 class ReportPinjamController extends Controller
@@ -9,9 +10,22 @@ class ReportPinjamController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = collect();
+
+        if ($request->has(['dari', 'sampai']) && $request->filled(['dari', 'sampai'])) {
+            $request->validate([
+                'dari' => 'required|date',
+                'sampai' => 'required|date|after_or_equal:dari',
+            ]);
+
+            $data = TrsPinjam::whereBetween('tg_pinjam', [$request->dari, $request->sampai])->get();
+        }
+
+        return view('report.pinjam')->with([
+            'data' => $data,
+        ]);
     }
 
     /**
