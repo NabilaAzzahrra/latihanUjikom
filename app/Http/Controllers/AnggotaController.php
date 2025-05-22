@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
@@ -42,6 +43,15 @@ class AnggotaController extends Controller
             'jml_pinjam' => 0,
         ];
         Anggota::create($data);
+
+        $data = [
+            'email' => $request->input('kd_anggota') . '@gmail.com',
+            'password' => bcrypt('12345678'),
+            'name' => $request->input('nm_anggota'),
+            'role' => 'U',
+            'status' => 'AKTIF',
+        ];
+        User::create($data);
         return back()->with('message_insert', 'Data Sudah ditambahkan');
     }
 
