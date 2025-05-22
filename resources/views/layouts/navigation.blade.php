@@ -26,19 +26,21 @@
                     </div>
                 @endcan
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('koleksi.index')" :active="request()->routeIs('koleksi.index')">
-                        {{ __('Koleksi') }}
-                    </x-nav-link>
-                </div>
+                @can('role-A')
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('koleksi.index')" :active="request()->routeIs('koleksi.index')">
+                            {{ __('Koleksi') }}
+                        </x-nav-link>
+                    </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('kebijakan.index')" :active="request()->routeIs('kebijakan.index')">
-                        {{ __('Kebijakan') }}
-                    </x-nav-link>
-                </div>
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('kebijakan.index')" :active="request()->routeIs('kebijakan.index')">
+                            {{ __('Kebijakan') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -54,19 +56,21 @@
                     </x-nav-link>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('reportPinjam.index')" :active="request()->routeIs('reportPinjam.index')">
-                        {{ __('Laporan Pinjam') }}
-                    </x-nav-link>
-                </div>
+                @can('role-A')
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('reportPinjam.index')" :active="request()->routeIs('reportPinjam.index')">
+                            {{ __('Laporan Pinjam') }}
+                        </x-nav-link>
+                    </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Laporan Kembali') }}
-                    </x-nav-link>
-                </div>
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('reportKembali.index')" :active="request()->routeIs('reportKembali.index')">
+                            {{ __('Laporan Kembali') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
             </div>
 
             <!-- Settings Dropdown -->

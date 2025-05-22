@@ -21,4 +21,14 @@ class Trskembali extends Model
     ];
 
     protected $table = 'trs_kembali';
+
+    public function anggota()
+    {
+        return $this->belongsTo(Anggota::class, 'kd_anggota', 'kd_anggota');
+    }
+
+    public function koleksi()
+    {
+        return $this->belongsTo(Koleksi::class, 'kd_koleksi', 'kd_koleksi');
+    }
 }

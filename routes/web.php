@@ -4,6 +4,7 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\KebijakanController;
 use App\Http\Controllers\KoleksiController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportKembaliController;
 use App\Http\Controllers\ReportPinjamController;
 use App\Http\Controllers\TrsKembaliController;
 use App\Http\Controllers\TrsPinjamController;
@@ -23,6 +24,7 @@ Route::resource('kebijakan', KebijakanController::class);
 Route::resource('trsPinjam', TrsPinjamController::class);
 Route::resource('trsKembali', TrsKembaliController::class);
 Route::resource('reportPinjam', ReportPinjamController::class);
+Route::resource('reportKembali', ReportKembaliController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
